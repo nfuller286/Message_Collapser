@@ -43,4 +43,5 @@ This extension enhances your SillyTavern experience by allowing you to collapse 
 
 *   Compatible with recent versions of SillyTavern that support the current extension API. (Please update if a specific ST version is required by the user).
 
-Licensing: I don't care, use it however you want. 
+## Licensing
+* I don't care, use it however you want. 
