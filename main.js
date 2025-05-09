@@ -78,7 +78,6 @@ jQuery(async () => {
         if (settings.isEnabled) {
             addCollapseArrowsToMessages(); // Add arrows on load if enabled (imported)
         }
-
         // Event Handlers
         $("#testExtensionMasterEnable").on("change", handleMasterEnableToggleChange);
         // Global action buttons now use imported handlers
@@ -89,9 +88,6 @@ jQuery(async () => {
 
         // Arrow click handler - uses imported arrowClass and handleArrowClick
         $(document).on('click', '.' + arrowClass, handleArrowClick); // handleArrowClick is imported
-
-        console.log("Message Collapser main.js initialized and HTML loaded. Actions are modularized.");
-
     } catch (error) {
         console.error("Error loading Message Collapser settings HTML or initializing:", error);
         toastr.error("Failed to load Message Collapser UI. Check console for details.");
