@@ -1,0 +1,11 @@
+{
+    "display_name": "Message_Collapser",
+    "loading_order": 5,
+    "requires": [],
+    "optional": [],
+    "js": "main.js",
+    "author": "nfuller286",
+    "version": "1.0.0",
+    "homePage": "https://github.com/nfuller286/Message_Collapser",
+    "css": "style.css"
+}
