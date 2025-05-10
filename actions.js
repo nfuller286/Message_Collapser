@@ -25,9 +25,7 @@ export function removeCollapseArrowsFromMessages() {
 }
 
 // Function to collapse message
-function collapseMessage(mes_id) {
-    const message = $('.mes[mesid="'+mes_id+'"]');
-
+function collapseMessage(message) {
     const messageText = message.find('.mes_text');
     const arrowSpan = message.find('.' + arrowClass);
     const icon = arrowSpan.find('i');
@@ -40,9 +38,7 @@ function collapseMessage(mes_id) {
 }
 
 // Function to expand message
-function expandMessage(mes_id) {
-    const message = $('.mes[mesid="'+mes_id+'"]');
-
+function expandMessage(message) {
     const messageText = message.find('.mes_text');
     const arrowSpan = message.find('.' + arrowClass);
     const icon = arrowSpan.find('i');
@@ -76,6 +72,7 @@ export function handleCollapseDisabledClick() {
     for (var mes_id = 0; mes_id < chat.length; mes_id++) {
         // the is_system attribute is actually whether the message is included in the prompt, i.e. hidden
         if (chat[mes_id].is_system) {
+            let message = $('.mes[mesid="'+mes_id+'"]');
             collapseMessage(mes_id);
             count++;
         }
@@ -94,7 +91,8 @@ export function handleExpandDisabledClick() {
     for (var mes_id = 0; mes_id < chat.length; mes_id++) {
         // the is_system attribute is actually whether the message is included in the prompt, i.e. hidden
         if (chat[mes_id].is_system) {
-            expandMessage(mes_id);
+            let message = $('.mes[mesid="'+mes_id+'"]');
+            expandMessage(message);
             count++;
         }
     }
@@ -111,18 +109,8 @@ export function handleExpandAllClick() {
     let count = 0;
     $('.mes').each(function() {
         const message = $(this);
-        if (message.find('.mes_text').is(':hidden') || message.hasClass(collapsedClass)) {
-            const messageText = message.find('.mes_text');
-            const arrowSpan = message.find('.' + arrowClass);
-            const icon = arrowSpan.find('i');
-
-            messageText.show();
-            message.removeClass(collapsedClass);
-            if (arrowSpan.length && icon.length) {
-                icon.removeClass('fa-chevron-right').addClass('fa-chevron-down');
-            }
-            count++;
-        }
+        expandMessage(message);
+        count++;
     });
     if (count > 0) {
         toastr.success(count + (count === 1 ? " message expanded." : " messages expanded."));
@@ -136,18 +124,8 @@ export function handleCollapseAllClick() {
     let count = 0;
     $('.mes').each(function() {
         const message = $(this);
-        if (message.find('.mes_text').is(':visible') || !message.hasClass(collapsedClass)) {
-            const messageText = message.find('.mes_text');
-            const arrowSpan = message.find('.' + arrowClass);
-            const icon = arrowSpan.find('i');
-
-            messageText.hide();
-            message.addClass(collapsedClass);
-            if (arrowSpan.length && icon.length) {
-                icon.removeClass('fa-chevron-down').addClass('fa-chevron-right');
-            }
-            count++;
-        }
+        collapseMessage(message);
+        count++;
     });
     if (count > 0) {
         toastr.success(count + (count === 1 ? " message collapsed." : " messages collapsed."));
