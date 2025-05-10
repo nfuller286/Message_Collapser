@@ -73,7 +73,7 @@ export function handleCollapseDisabledClick() {
         // the is_system attribute is actually whether the message is included in the prompt, i.e. hidden
         if (chat[mes_id].is_system) {
             let message = $('.mes[mesid="'+mes_id+'"]');
-            collapseMessage(mes_id);
+            collapseMessage(message);
             count++;
         }
     }
