@@ -1,4 +1,5 @@
-// The main script for the Message Collapser
+// main.js
+//The main script for the Message Collapser
 
 import { extension_settings, getContext, loadExtensionSettings } from "../../../extensions.js";
 import { saveSettingsDebounced } from "../../../../script.js";
