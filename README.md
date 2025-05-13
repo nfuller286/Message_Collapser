@@ -35,9 +35,15 @@ This extension enhances your SillyTavern experience by allowing you to collapse 
     *   Hover over a message. A small arrow icon will appear (by default, prepended to the message).
     *   Click the arrow to collapse the message text. Click again to expand.
 3.  **Global & Hidden Message Actions**:
-    *   Open the "Message Collapser" settings panel (usually accessible from the extensions quick access menu or the main extensions page in SillyTavern).
-    *   Use the "Collapse All", "Expand All", "Collapse Hidden", and "Expand Hidden" buttons as needed.
-    *   A master "Enable Message Collapser" toggle is available to turn the extension on or off.
+    *   These actions can be performed in two ways:
+        *   **Via Settings Panel**: Open the "Message Collapser" settings panel (usually accessible from the extensions quick access menu or the main extensions page in SillyTavern). Use the "Collapse All", "Expand All", "Collapse Hidden", and "Expand Hidden" buttons.
+        *   **Via Slash Command**: Type `/fold` followed by an action directly into the chat input.
+            *   `/fold up`: Collapses messages currently marked as hidden or system messages.
+            *   `/fold down`: Expands messages currently marked as hidden or system messages.
+            *   `/fold up all`: Collapses all messages in the chat.
+            *   `/fold down all`: Expands all messages in the chat.
+4.  **Master Toggle**:
+    *   A master "Enable Message Collapser" toggle is available in the settings panel to turn the entire extension on or off.
 
 ## Prerequisites
 
